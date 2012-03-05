@@ -27,7 +27,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'TiendaBundle_homepage' => true,
        'CiudadBundle_homepage' => true,
        'OfertaBundle_homepage' => true,
-       'pagina_ayuda' => true,
+       'pagina_estatica' => true,
     );
 
     /**
@@ -121,8 +121,8 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         return array(array (  0 => 'name',), array (  '_controller' => 'Cupon\\OfertaBundle\\Controller\\DefaultController::indexAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'name',  ),  1 =>   array (    0 => 'text',    1 => '/hello',  ),));
     }
 
-    private function getpagina_ayudaRouteInfo()
+    private function getpagina_estaticaRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Cupon\\OfertaBundle\\Controller\\DefaultController::ayudaAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/ayuda',  ),));
+        return array(array (  0 => 'pagina',), array (  '_controller' => 'Cupon\\OfertaBundle\\Controller\\SitioController::estaticaAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'pagina',  ),  2 =>   array (    0 => 'text',    1 => '/sitio',  ),));
     }
 }

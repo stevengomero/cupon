@@ -104,9 +104,12 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Cupon\\OfertaBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'OfertaBundle_homepage'));
         }
 
-        // pagina_ayuda
-        if ($pathinfo === '/ayuda') {
-            return array (  '_controller' => 'Cupon\\OfertaBundle\\Controller\\DefaultController::ayudaAction',  '_route' => 'pagina_ayuda',);
+        // pagina_estatica
+        if (0 === strpos($pathinfo, '/sitio') && preg_match('#^/sitio/(?P<pagina>[^/]+?)/?$#xs', $pathinfo, $matches)) {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'pagina_estatica');
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Cupon\\OfertaBundle\\Controller\\SitioController::estaticaAction',)), array('_route' => 'pagina_estatica'));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
