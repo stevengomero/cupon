@@ -60,4 +60,4 @@ jms_security_extra:
     secure_all_services: false
     
 parameters:
-    cupon.ciudad_por_defecto:  'barcelona'
+    cupon.ciudad_por_defecto:  'madrid'

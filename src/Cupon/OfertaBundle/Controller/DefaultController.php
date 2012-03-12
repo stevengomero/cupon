@@ -17,8 +17,7 @@ class DefaultController extends Controller
        }
        
 	$em = $this->getDoctrine()->getEntityManager();
-	$oferta = $em->getRepository('OfertaBundle:Oferta')->findOfertaDelDia(array(
-	    'ciudad' => $ciudad));
+	$oferta = $em->getRepository('OfertaBundle:Oferta')->findOfertaDelDia($ciudad);
 	
 	if (!$oferta) {
 		throw $this->createNotFoundException(
