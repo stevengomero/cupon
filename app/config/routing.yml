@@ -6,6 +6,10 @@ _portada:
   pattern: /
   defaults: {_controller:OfertaBundle:Default:portada}
   
+ciudad_cambiar:
+  pattern: /ciudad/cambiar-a-{ciudad}
+  defaults: {_controller: CiudadBundle:Default:cambiar}
+  
 UsuarioBundle:
     resource: "@UsuarioBundle/Resources/config/routing.yml"
     prefix:   /
